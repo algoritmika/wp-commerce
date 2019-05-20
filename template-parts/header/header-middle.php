@@ -17,7 +17,7 @@
                 <?php $wp_commerce_header_search_option = get_theme_mod( 'wp_commerce_header_search_option', 'show' );
                 if( $wp_commerce_header_search_option == 'show' ) :?>
                     <div class="search">
-                        <form class="my-2 my-lg-0 search-form">
+                        <form class="my-2 my-lg-0 search-form"  method ="get" id="searchform" action="<?php echo esc_url(home_url('/'));?>">
                             <div class="select-category">
                                 <?php
                                 if ( class_exists( 'WooCommerce' ) ) {  
@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-lg-4 col-md-12">
-                <?php if( is_woocommerce_activated() ) :?>
+                <?php if( wp_commerce_is_woocommerce_activated() ) :?>
                     <?php $wp_commerce_header_cart_option = get_theme_mod( 'wp_commerce_header_cart_option', 'show' );
                     if( $wp_commerce_header_cart_option == 'show' ) :?>
                         <?php wp_commerce_add_to_cart_dropdown();?>

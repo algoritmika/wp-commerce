@@ -10,7 +10,9 @@ if( $wp_commerce_top_header_option == 'show' ) :?>
                     </div>
                     <div class="col-lg-4 col-sm-4">
                         <div class="language">
-                            <?php echo do_shortcode( '[wcj_currency_select_drop_down_list]' );?>
+                            <?php if (get_theme_mod('wp_commerce_currency_exchange_code')):
+                                echo do_shortcode(get_theme_mod('wp_commerce_currency_exchange_code')); 
+                            endif; ?>   
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-8">
@@ -20,11 +22,12 @@ if( $wp_commerce_top_header_option == 'show' ) :?>
                             </li>
                             <li>
                                 <?php if ( is_user_logged_in() ) { ?>
-                                <a href="<?php echo esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )); ?>" title="<?php esc_html_e('My Account','wp-commerce'); ?>"><?php esc_html_e('My Account','wp-commerce'); ?></a>
+                                    <a href="<?php echo esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )); ?>" title="<?php esc_html_e('My Account','wp-commerce'); ?>"><?php esc_html_e('My Account','wp-commerce'); ?></a>/ 
+                                    <a href="<?php echo esc_url(wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ));?>" title="<?php esc_html_e('Logout','wp-commerce'); ?>"><?php esc_html_e('Logout','wp-commerce'); ?></a>
                                 <?php } 
                                 else { ?>
                                     <a href="<?php echo esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )); ?>" title="<?php esc_html_e('Login / Register','wp-commerce'); ?>"><?php esc_html_e('Login / Register','wp-commerce'); ?></a>
-                                    <?php } ?>
+                                <?php } ?>
                             </li>
                         </ul>
                     </div>

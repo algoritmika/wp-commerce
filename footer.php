@@ -16,7 +16,7 @@
             if ( has_nav_menu( 'footer-1' ) ) {
                 wp_nav_menu( array(
                     'theme_location'    => 'footer-1',
-                    'depth'             => 0,
+                    'depth'             => 1,
                     'menu_class'        => 't-nav',
                     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                     'walker'            => new wp_bootstrap_navwalker(),
@@ -36,10 +36,9 @@
                         </div>
                     </div>
                     <div class="copyright">
-                     <?php /* translators: 1: Theme name, 2: Theme author. */
-                     printf( esc_html__( 'Copyright %1$s %2$s. All Rights Reserved. Powered by %3$s', 'wp-commerce' ), esc_html(date('Y')), esc_html(get_bloginfo('name')), '<a href="http://wpcodefactory.com/">wpcodefactory</a>' );
+                     <?php /* translators: 1: Current Date, 2: Theme name, 3: Theme author. */
+                     printf( esc_html__( 'Copyright %1$s %2$s. All Rights Reserved. Powered by %3$s', 'wp-commerce' ), esc_html(date('Y')), esc_html(get_bloginfo('name')), '<a href="http://wpcodethemes.com/">wpcodethemes</a>' );
                      ?>
-                     <!--    <p>Copyright 2018. Themename. All Rights Reserved. Powered by <a href="#">Oceanweb Themes.</a></p> -->
                  </div>
              </div>
          </div>
@@ -53,7 +52,7 @@
                 if ( has_nav_menu( 'footer-2' ) ) {
                     wp_nav_menu( array(
                         'theme_location'    => 'footer-2',
-                        'depth'             => 0,
+                        'depth'             => 1,
                         'menu_class'        => 't-nav',
                         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                         'walker'            => new wp_bootstrap_navwalker(),

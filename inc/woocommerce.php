@@ -125,9 +125,6 @@ function wp_commerce_before_main_content()
 		function wp_commerce_template_loop_add_to_cart(){?>
 			<ul class="option">
 				<li>
-					<a href="<?php esc_url(the_permalink());?>" title="review"><span class="fa fa-heart"></span></a>
-				</li>
-				<li>
 					<?php global $product;?>
 					<a href="<?php echo esc_url( $product->add_to_cart_url() );?>" class="active" title="Add to cart"><span class="fa fa-shopping-cart"></span></a>
 				</li>
@@ -156,8 +153,8 @@ function wp_commerce_output_related_products(){
 
 	global $product;
 	$args = array(
-			'posts_per_page' => 4,
-			'columns'        => 4,
+		'posts_per_page' => 4,
+		'columns'        => 4,
 			'orderby'        => 'rand', // @codingStandardsIgnoreLine.
 		);
 	if ( ! $product ) {
@@ -190,7 +187,7 @@ function wp_commerce_template_single_meta(){
 }
 
 function wp_commerce_template_single_title(){
-	the_title( '   <h5>', '</h5>' );
+	the_title( '<h5>', '</h5>' );
 }
 
 function wp_commerce_template_single_rating(){
@@ -319,7 +316,7 @@ function wp_commerce_add_to_cart_dropdown(){?>
 								<?php }?>
 								<div class="media-body">
 
-									<h6 class="mt-0"><?php echo esc_html($item_name);?></h6>
+									<a href="<?php echo esc_url(get_permalink($item_id));?>"><h6 class="mt-0"><?php echo esc_html($item_name);?></h6></a>
 									<div class="price-tag">
 										<?php $currency = get_woocommerce_currency_symbol();?>
 										<p><span class="discount-tag"><?php echo esc_html($currency); echo esc_html(get_post_meta($item_id, '_regular_price', true));?></span><?php echo esc_html($currency);echo esc_html(get_post_meta($item_id , '_sale_price', true));?></p>
@@ -352,5 +349,5 @@ function wp_commerce_add_to_cart_dropdown(){?>
 			</div>
 		</div>
 	</div>
-		<?php
-	}
+	<?php
+}

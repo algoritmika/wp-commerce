@@ -45,18 +45,6 @@
                 </li>
             </ul>
         <?php endif; ?>
-         <?php
-            if ( has_nav_menu( 'buy-pro' ) ) {
-                wp_nav_menu( array(
-                'theme_location'    => 'buy-pro',
-                'depth'             => 0,
-                'container'   => 'ul',
-                'menu_class'        => 'navbar-nav ml-auto r-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker(),
-            ));
-            }
-        ?>
     </div>
 </div>
 </nav>

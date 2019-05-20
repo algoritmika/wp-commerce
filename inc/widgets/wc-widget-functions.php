@@ -100,7 +100,7 @@ add_action( 'widgets_init', 'wp_commerce_widgets_init' );
 
 function wp_commerce_register_grid_layout_widget() {
 
-    if( is_woocommerce_activated() ) {
+    if( wp_commerce_is_woocommerce_activated() ) {
     	// Featured Products
     	register_widget( 'WP_Commerce_Featured_Products' );
 
@@ -122,7 +122,7 @@ add_action( 'widgets_init', 'wp_commerce_register_grid_layout_widget' );
  */
 require get_template_directory() . '/inc/widgets/wc-widget-fields.php';
 
-if( is_woocommerce_activated() ) {
+if( wp_commerce_is_woocommerce_activated() ) {
 	require get_template_directory() . '/inc/widgets/wc-featured-products.php';
 	require get_template_directory() . '/inc/widgets/wc-new-arrival-products.php';
 	require get_template_directory() . '/inc/widgets/wc-hot-products.php';

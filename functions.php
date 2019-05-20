@@ -1,6 +1,6 @@
 <?php
 /**
- * woo-commerce functions and definitions
+ * wp-commerce functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -21,10 +21,10 @@ if ( ! function_exists( 'wp_commerce_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on woo-commerce, use a find and replace
-		 * to change 'woo-commerce' to the name of your theme in all the template files.
+		 * If you're building a theme based on wp-commerce, use a find and replace
+		 * to change 'wp-commerce' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'woo-commerce', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'wp-commerce', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -50,10 +50,10 @@ if ( ! function_exists( 'wp_commerce_setup' ) ) :
 		add_image_size( 'wp-commerce-banner-thumb-730*-368', 730,369,true);
 		add_image_size( 'wp-commerce-single-product_related-thumb-109*-109', 109,109,true);
 		add_image_size( 'wp-commerce-single-product-thumb-379*-379', 379,379,true);
+		add_image_size( 'wp-commerce-blog-thumb', 350,213,true);
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Main menu', 'wp-commerce' ),
-			'buy-pro' => esc_html__( 'Buy Pro(Main menu Right)', 'wp-commerce' ),
 			'footer-1' => esc_html__( 'Footer Top Menu', 'wp-commerce'),
 			'footer-2' => esc_html__( 'Footer Menu', 'wp-commerce')
 		) );
@@ -147,11 +147,7 @@ require $template_directory.'/inc/customizer/customizer.php';
 */
 require $template_directory.'/inc/customizer/customizer-css.php';
 
-/*
-* Plugins Activation
-*/
 
-require $template_directory. '/inc/tgm/wc-required-plugins.php';
 
 /**
  * Load WooCommerce compatibility file.
@@ -188,15 +184,22 @@ add_filter('walker_nav_menu_start_el', 'wp_commerce_walker_nav_menu_start_el', 1
 
 function wp_commerce_walker_nav_menu_start_el($item_output, $item, $depth = 0, $args = array(), $id = 0) 
 {
-    // you can put your if statements in here (use item, depth and args in conditions)
-   if ( $args->has_children) {
     if ( $depth == 0 ) {
-        $item_output = preg_replace('/<a /', '<a class="nav-link dropdown-toggle" ', $item_output, 1);
-    } else if ( $depth > 0 ){
+        $item_output = preg_replace('/<a /', '<a class="nav-link" ', $item_output, 1);
+    } elseif( $depth > 0 ){
         $item_output = preg_replace('/<a /', '<a class="dropdown-item" ', $item_output, 1);
     }
-   }
     return $item_output;
+}
+
+if ( is_admin() ) {
+	// Load about.
+	require_once trailingslashit( get_template_directory() ) . '/inc/theme-info/class-about.php';
+	require_once trailingslashit( get_template_directory() ) . '/inc/theme-info/about.php';
+
+	// Load demo.
+	require_once trailingslashit( get_template_directory() ) . '/inc/demo/class-demo.php';
+	require_once trailingslashit( get_template_directory() ) . '/inc/demo/demo.php';
 }
 
 

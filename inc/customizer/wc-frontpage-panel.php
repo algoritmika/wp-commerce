@@ -113,6 +113,7 @@ $wp_customize->add_control( 'wp_commerce_frontpage_slider_items_number', array(
     'type'                  => 'number',
     'settings' => 'wp_commerce_frontpage_slider_items_number',
 ) );
+
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /**
  * Front Promo section

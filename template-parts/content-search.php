@@ -1,35 +1,38 @@
 <?php
 /**
- * Template part for displaying results in search pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WP Commerce
- */
+* Template part for displaying results in search pages
+*
+* @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+*
+* @package WP Commerce
+*/
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+<div class="card">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="img-holder">
+			<?php the_post_thumbnail('wp-commerce-blog-thumb'); ?>
+		</div>
+		<div class="card-body">
 			<?php
-			wp_commerce_posted_on();
-			wp_commerce_posted_by();
+			if ( is_singular() ) :
+				the_title( '<h1 class="entry-title">', '</h1>' );
+			else :
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			endif;
 			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+			<ul class="blog-info">
+				<li><?php $categories = get_the_category(); 
+				$cat_name = $categories[0]->cat_name;
+				echo esc_html($cat_name);
+				?></li>
+				<li><?php wp_commerce_posted_by();?></li>
+				<li class="date"><?php wp_commerce_posted_on();?></li>
+			</ul>
+			<?php the_content();?>
 
-	<?php wp_commerce_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php wp_commerce_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+			<span class="cmt"><?php echo esc_html(get_comments_number());?> <?php esc_html_e('Comments','wp-commerce');?></span>
+		</div>
+	</article><!-- #post-<?php the_ID(); ?> -->
+</div>

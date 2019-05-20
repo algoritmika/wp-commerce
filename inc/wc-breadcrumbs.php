@@ -31,14 +31,14 @@
  * @param  array $args Arguments to pass to Breadcrumb_Trail.
  * @return void
  */
-function breadcrumb_trail( $args = array() ) {
+function wp_commerce_breadcrumb_trail( $args = array() ) {
 
-	$breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
+	$wp_commerce_breadcrumb = apply_filters( 'wp_commerce_breadcrumb_trail_object', null, $args );
 
-	if ( ! is_object( $breadcrumb ) )
-		$breadcrumb = new Breadcrumb_Trail( $args );
+	if ( ! is_object( $wp_commerce_breadcrumb ) )
+		$wp_commerce_breadcrumb = new WP_Commerce_Breadcrumb_Trail( $args );
 
-	return $breadcrumb->trail();
+	return $wp_commerce_breadcrumb->wp_commerce_trail();
 }
 
 /**
@@ -47,7 +47,7 @@ function breadcrumb_trail( $args = array() ) {
  * @since  0.6.0
  * @access public
  */
-class Breadcrumb_Trail {
+class WP_Commerce_Breadcrumb_Trail {
 
 	/**
 	 * Array of items belonging to the current breadcrumb trail.
@@ -100,7 +100,7 @@ class Breadcrumb_Trail {
 	}
 
 	/**
-	 * Sets up the breadcrumb trail properties.  Calls the `Breadcrumb_Trail::add_items()` method
+	 * Sets up the breadcrumb trail properties.  Calls the `WP_Commerce_Breadcrumb_Trail::add_items()` method
 	 * to creat the array of breadcrumb items.
 	 *
 	 * @since  0.6.0
@@ -116,8 +116,8 @@ class Breadcrumb_Trail {
 	 *     @type bool      $network        Whether to link to the network main site (multisite only).
 	 *     @type bool      $show_title     Whether to show the title (last item) in the trail.
 	 *     @type bool      $show_browse    Whether to show the breadcrumb menu header.
-	 *     @type array     $labels         Text labels. @see Breadcrumb_Trail::set_labels()
-	 *     @type array     $post_taxonomy  Taxonomies to use for post types. @see Breadcrumb_Trail::set_post_taxonomy()
+	 *     @type array     $labels         Text labels. @see WP_Commerce_Breadcrumb_Trail::set_labels()
+	 *     @type array     $post_taxonomy  Taxonomies to use for post types. @see WP_Commerce_Breadcrumb_Trail::set_post_taxonomy()
 	 *     @type bool      $echo           Whether to print or return the breadcrumbs.
 	 * }
 	 * @return void
@@ -141,7 +141,7 @@ class Breadcrumb_Trail {
 		);
 
 		// Parse the arguments with the deaults.
-		$this->args = apply_filters( 'breadcrumb_trail_args', wp_parse_args( $args, $defaults ) );
+		$this->args = apply_filters( 'wp_commerce_breadcrumb_trail_args', wp_parse_args( $args, $defaults ) );
 
 		// Set the labels and post taxonomy properties.
 		$this->set_labels();
@@ -160,7 +160,7 @@ class Breadcrumb_Trail {
 	 * @access public
 	 * @return string
 	 */
-	public function trail() {
+	public function wp_commerce_trail() {
 
 		// Set up variables that we'll need.
 		$breadcrumb    = '';
@@ -391,7 +391,7 @@ class Breadcrumb_Trail {
 		$this->add_paged_items();
 
 		// Allow developers to overwrite the items for the breadcrumb trail.
-		$this->items = array_unique( apply_filters( 'breadcrumb_trail_items', $this->items, $this->args ) );
+		$this->items = array_unique( apply_filters( 'wp_commerce_breadcrumb_trail_items', $this->items, $this->args ) );
 	}
 
 	/**

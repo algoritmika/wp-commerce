@@ -15,7 +15,6 @@
 get_header();
 
 ?>
-
 <section class="news blogs block">
     <div class="container">
       <div class="row">

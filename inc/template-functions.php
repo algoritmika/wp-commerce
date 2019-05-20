@@ -79,8 +79,8 @@ endif;
 if( ! function_exists( 'wp_commerce_font_awesome_social_icon_array' ) ) :
     function wp_commerce_font_awesome_social_icon_array(){
         return array(
-                "fa fa-facebook-square","fa fa-facebook-f","fa fa-facebook","fa fa-facebook-official","fa fa-twitter-square","fa fa-twitter","fa fa-yahoo","fa fa-google","fa fa-google-wallet","fa fa-google-plus-circle","fa fa-google-plus-official","fa fa-instagram","fa fa-linkedin-square","fa fa-linkedin","fa fa-pinterest-p","fa fa-pinterest","fa fa-pinterest-square","fa fa-google-plus-square","fa fa-google-plus","fa fa-youtube-square","fa fa-youtube","fa fa-youtube-play","fa fa-vimeo","fa fa-vimeo-square",
-            );
+            "fa fa-facebook-square","fa fa-facebook-f","fa fa-facebook","fa fa-facebook-official","fa fa-twitter-square","fa fa-twitter","fa fa-yahoo","fa fa-google","fa fa-google-wallet","fa fa-google-plus-circle","fa fa-google-plus-official","fa fa-instagram","fa fa-linkedin-square","fa fa-linkedin","fa fa-pinterest-p","fa fa-pinterest","fa fa-pinterest-square","fa fa-google-plus-square","fa fa-google-plus","fa fa-youtube-square","fa fa-youtube","fa fa-youtube-play","fa fa-vimeo","fa fa-vimeo-square",
+        );
     }
 endif;
 
@@ -100,9 +100,9 @@ if( ! function_exists( 'wp_commerce_top_header_items' ) ):
             foreach ( $get_decode_top_header_items as $single_item ) {
                 $item_icon  = $single_item->mt_item_icon;
                 $item_info  = $single_item->mt_item_text;
-        ?>
-         <a href="tel:<?php echo esc_html( $item_info ); ?>"><span class="<?php echo esc_attr( $item_icon ); ?> icon"></span><?php echo esc_html( $item_info ); ?></a>
-        <?php
+                ?>
+                <a href="tel:<?php echo esc_html( $item_info ); ?>"><span class="<?php echo esc_attr( $item_icon ); ?> icon"></span><?php echo esc_html( $item_info ); ?></a>
+                <?php
             }
             echo '</div><!-- .wc-items-wrapper -->';
         }
@@ -118,25 +118,25 @@ if( ! function_exists( 'wp_commerce_promo_items' ) ):
                 $item_title  = $single_item->mt_item_text;
                 $item_info  = $single_item->mt_item_text1;
                 $item_image = $single_item->mt_item_upload;
-        ?>
-        <div class="col-md-4">
-            <div class="card">
-                <a href="#">
-                    <?php   if( !empty( $item_image ) ) {?>
-                    <div class="img-holder">
-                        <img class="card-img-top" src="<?php echo esc_url( $item_image ); ?>" alt="">
+                ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <a href="#">
+                            <?php   if( !empty( $item_image ) ) {?>
+                                <div class="img-holder">
+                                    <img class="card-img-top" src="<?php echo esc_url( $item_image ); ?>" alt="">
+                                </div>
+                            <?php }?>
+                            <div class="card-body">
+                                <h4><?php echo esc_html($item_title);?></h4>
+                                <p class="card-text"><?php echo esc_html($item_info);?></p>
+                            </div>
+                        </a>
                     </div>
-                    <?php }?>
-                    <div class="card-body">
-                        <h4><?php echo esc_html($item_title);?></h4>
-                        <p class="card-text"><?php echo esc_html($item_info);?></p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <?php
+                </div>
+                <?php
             }
-          
+
         }
     }
 endif;
@@ -148,14 +148,14 @@ endif;
  * @return boolean
  */
 
-if ( ! function_exists( 'is_woocommerce_activated' ) ) {
-    function is_woocommerce_activated() {
+if ( ! function_exists( 'wp_commerce_is_woocommerce_activated' ) ) {
+    function wp_commerce_is_woocommerce_activated() {
         if ( class_exists( 'WooCommerce' ) ) {
           return true;
-        } else {
+      } else {
           return false;
-        }
-    }
+      }
+  }
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
@@ -167,13 +167,13 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 if( !function_exists( 'wp_commerce_categories_lists' ) ):
     function wp_commerce_categories_lists() {
         $wp_commerce_cat_args = array(
-                'type'        => 'post',
-                'child_of'    => 0,
-                'orderby'     => 'name',
-                'order'       => 'ASC',
-                'hide_empty'  => 1,
-                'taxonomy'    => 'category',
-            );
+            'type'        => 'post',
+            'child_of'    => 0,
+            'orderby'     => 'name',
+            'order'       => 'ASC',
+            'hide_empty'  => 1,
+            'taxonomy'    => 'category',
+        );
         $wp_commerce_categories = get_categories( $wp_commerce_cat_args );
         $wp_commerce_categories_lists = array();
         foreach( $wp_commerce_categories as $category ) {
@@ -220,9 +220,6 @@ endif;
 add_filter( 'wp_commerce_inner_header_style_attribute', 'wp_commerce_inner_header_bg_image' );
 
 
-
-
-
 if ( ! function_exists( 'wp_commerce_inner_breadcrumb' ) ) :
 
     /**
@@ -231,8 +228,7 @@ if ( ! function_exists( 'wp_commerce_inner_breadcrumb' ) ) :
      * @since 1.0.0
      */
     function wp_commerce_inner_breadcrumb() {
-
-        if ( ! function_exists( 'breadcrumb_trail' ) ) {
+        if ( ! function_exists( 'wp_commerce_breadcrumb_trail' ) ) {
             require_once get_template_directory() . '/inc/wc-breadcrumbs.php';
         }
 
@@ -240,7 +236,7 @@ if ( ! function_exists( 'wp_commerce_inner_breadcrumb' ) ) :
             'container'   => 'div',
             'show_browse' => false,
         );
-        breadcrumb_trail( $breadcrumb_args );
+        wp_commerce_breadcrumb_trail( $breadcrumb_args );
 
     }
 

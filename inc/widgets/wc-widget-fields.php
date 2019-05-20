@@ -155,7 +155,7 @@ function wp_commerce_widgets_show_widget_field( $instance = '', $widget_field = 
          * woocommerce category dropdown field
          */
         case 'woo_category_dropdown' :
-            if( is_woocommerce_activated() ) {
+            if( wp_commerce_is_woocommerce_activated() ) {
                 $select_field = 'name="'. esc_attr( $instance->get_field_name( $wp_commerce_widgets_name ) ) .'" id="'. esc_attr( $instance->get_field_id( $wp_commerce_widgets_name ) ) .'" class="widefat"';
         ?>
                 <p>

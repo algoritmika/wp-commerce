@@ -9,47 +9,41 @@
 
 get_header();
 ?>
+<section class="news blogs blog-detail block">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-sm-12">
+       <?php
+       if ( have_posts() ) : 
+         while ( have_posts() ) :
+          the_post();
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+          get_template_part( 'template-parts/content','search');
 
-		<?php if ( have_posts() ) : ?>
+				// If comments are open or we have at least one comment, load up the comment template.
+          if ( comments_open() || get_comments_number() ) :
+           comments_template();
+       endif;
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'wp-commerce' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+			endwhile; // End of the loop.
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+      the_posts_navigation();
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+    else :
 
-			endwhile;
+      get_template_part( 'template-parts/content', 'none' );
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+    endif;
+    ?>
+  </div>
+  <div class="col-lg-4 col-sm-12">
+    <div class="left-sidebar sidebar">
+      <?php get_sidebar(); ?>
+    </div>
+  </div>
+</div>
+</div>
+</section>
 
 <?php
-get_sidebar();
 get_footer();

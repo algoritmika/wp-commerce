@@ -67,62 +67,59 @@ class WP_Commerce_Featured_Products extends WP_Widget {
         
         $featured_query = new WP_Query( $featured_args );
         $total_post = $featured_query->post_count;
-?>     
-    <?php
+        ?>     
+        <?php
         if ( $featured_query->have_posts() ) {
             while ( $featured_query->have_posts() ) {
                 $featured_query->the_post();?>
-               <div class="col-md-3 col-holder">
-                <div class="product">
-                  <div class="card">
-                    <a href="#" class="img-holder">
-                      <?php the_post_thumbnail( 'wp-commerce-product-thumbs-168-*-168' );?>
-                    </a>
-                    <div class="card-body">
-                      <ul class="option">
-                        <li>
-                          <a href="<?php esc_url(the_permalink());?>" title="review"><span class="fa fa-heart"></span></a>
-                        </li>
-                        <li>
-                            <?php global $product;?>
-                          <a href="<?php echo esc_url( $product->add_to_cart_url() );?>" class="active" title="Add to cart"><span class="fa fa-shopping-cart"></span></a>
-                        </li>
-                        <li>
-                          <a href="<?php esc_url(the_permalink());?>" title="View"><span class="fa fa-eye"></span></a>
-                        </li>
+                <div class="col-md-3 col-holder">
+                    <div class="product">
+                      <div class="card">
+                        <a href="#" class="img-holder">
+                          <?php the_post_thumbnail( 'wp-commerce-product-thumbs-168-*-168' );?>
+                      </a>
+                      <div class="card-body">
+                          <ul class="option">
+                            <li>
+                                <?php global $product;?>
+                                <a href="<?php echo esc_url( $product->add_to_cart_url() );?>" class="active" title="Add to cart"><span class="fa fa-shopping-cart"></span></a>
+                            </li>
+                            <li>
+                              <a href="<?php esc_url(the_permalink());?>" title="View"><span class="fa fa-eye"></span></a>
+                          </li>
                       </ul>
                       <a href="<?php esc_url(the_permalink());?>"><h6><?php the_title();?></h6></a>
-                       <?php $terms =  get_the_terms( $product->get_id(), 'product_cat' );
-                        if ( $terms && ! is_wp_error( $terms ) ) {?>
-                             <span class="category"><?php echo esc_html($terms[0]->name);?></span>
-                        <?php }?>
-                      <div class="price-tag">
-                        <?php
-                        global $woocommerce;
-                        $currency = get_woocommerce_currency_symbol();
-                        $price = get_post_meta( get_the_ID(), '_regular_price', true);
-                        $sale = get_post_meta( get_the_ID(), '_sale_price', true);
-                        ?>
-                        <p>
-                            <?php if($sale) : ?>
+                      <?php $terms =  get_the_terms( $product->get_id(), 'product_cat' );
+                      if ( $terms && ! is_wp_error( $terms ) ) {?>
+                       <span class="category"><?php echo esc_html($terms[0]->name);?></span>
+                   <?php }?>
+                   <div class="price-tag">
+                    <?php
+                    global $woocommerce;
+                    $currency = get_woocommerce_currency_symbol();
+                    $price = get_post_meta( get_the_ID(), '_regular_price', true);
+                    $sale = get_post_meta( get_the_ID(), '_sale_price', true);
+                    ?>
+                    <p>
+                        <?php if($sale) : ?>
                             <span class="discount-tag"><?php echo esc_html($currency); echo esc_html($price); ?></span> <?php echo esc_html($currency); echo esc_html($sale); ?>
                             
-                        <?php elseif($price) : ?>
-                         <span class="discount-tag"><?php echo esc_html($currency); echo esc_html($price); ?></span>  
-                        <?php endif; ?>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                            <?php elseif($price) : ?>
+                               <span class="discount-tag"><?php echo esc_html($currency); echo esc_html($price); ?></span>  
+                           <?php endif; ?>
+                       </p>
+                   </div>
                </div>
-          <?php  }
-           
-        } else {?>
-            <div class="wp-commerce-no-product-found"><?php esc_html_e( 'No Featured products found', 'wp-commerce' ); ?></div>
-        <?php }
-        wp_reset_postdata();
-    ?>
+           </div>
+       </div>
+   </div>
+<?php  }
+
+} else {?>
+    <div class="wp-commerce-no-product-found"><?php esc_html_e( 'No Featured products found', 'wp-commerce' ); ?></div>
+<?php }
+wp_reset_postdata();
+?>
 <?php
 }
 

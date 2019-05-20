@@ -1,6 +1,6 @@
 <?php
 /**
- * woo-commerce Theme Customizer
+ * wp-commerce Theme Customizer
  *
  * @package WP Commerce
  */
@@ -50,7 +50,7 @@ function wp_commerce_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function wp_commerce_customize_preview_js() {
-	wp_enqueue_script( 'woo-commerce-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+	wp_enqueue_script( 'wp-commerce-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'wp_commerce_customize_preview_js' );
 
@@ -66,7 +66,14 @@ function wp_commerce_customize_backend_scripts() {
     
     wp_enqueue_style( 'wp_commerce_admin_customizer_style', get_template_directory_uri() . '/assets/library/wc-customizer-style.css', array(), esc_attr( wp_commerce_VERSION ) );
 
-    wp_enqueue_script( 'wp_commerce_admin_customizer', get_template_directory_uri() . '/assets/library/wc-customizer-controls.js', array( 'jquery', 'customize-controls' ), esc_attr( wp_commerce_VERSION ), true );
+    wp_enqueue_script( 'wp_commerce_admin_customizer', get_template_directory_uri() . '/assets/library/wc-customizer-controls.js', array( 'jquery', 'customize-controls' ), '1.0.4', true );
+
+    wp_enqueue_script('wp-commerce-customizer', get_template_directory_uri() . '/inc/upgrade-to-pro/pro.js', array('jquery'), '1.3.0', true);
+
+    wp_localize_script( 'wp-commerce-customizer', 'wp_commerce_customizer_js_obj', array(
+        'pro' => __('Upgrade To WP Commerce Pro','wp-commerce')
+    ) );
+    wp_enqueue_style( 'wp-commerce-customizer', get_template_directory_uri() . '/inc/upgrade-to-pro/pro.css');
 }
 add_action( 'customize_controls_enqueue_scripts', 'wp_commerce_customize_backend_scripts', 10 );
 

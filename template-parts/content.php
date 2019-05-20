@@ -13,7 +13,7 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	      <div class="card">
 		        <div class="img-holder">
-		        <?php the_post_thumbnail('woo-commerce-blog-thumb'); ?>
+		        <?php the_post_thumbnail('wp-commerce-blog-thumb'); ?>
 		        </div>
 	        <div class="card-body">
 	         	<?php
@@ -24,14 +24,15 @@
 				endif;
 				?>
 	          <ul class="blog-info">
-	            <li><?php $category = get_categories($post_id);
-	            		echo esc_html($category[0]->name);
+	            <li><?php $categories = get_the_category(); 
+						$cat_name = $categories[0]->cat_name;
+						echo esc_html($cat_name);
 	            ?></li>
 	            <li><?php wp_commerce_posted_by();?></li>
 	            <li class="date"><?php wp_commerce_posted_on();?></li>
 	          </ul>
 	          <?php the_content();?>
-	          <a href="<?php esc_url(the_permalink());?>" class="btn"><?php esc_html_e('Read more','wp-commerce');?></a>
+	          <a href="<?php the_permalink();?>" class="btn"><?php esc_html_e('Read more','wp-commerce');?></a>
 	          <span class="cmt"><?php echo esc_html(get_comments_number());?> <?php esc_html_e('Comments','wp-commerce');?></span>
 	        </div>
 	      </div>

@@ -182,7 +182,7 @@ $wp_customize->add_control('wp_commerce_subscribe_shortcode',array(
 	'section'       =>      'wp_commerce_subscribe_footer_section',
 	 'label'                 =>  __( 'Subscribe Section Use Shortcode', 'wp-commerce' ),
       /* translators: %s: Description */ 
-    'description'           => sprintf( __( 'Use Newsletter Plugins shortcode: Eg: %1$s. %2$s See more here %3$s', 'wp-commerce' ), '[newsletter_form]','<a href="'.esc_url('https://wordpress.org/plugins/newsletter/').'" target="_blank">','</a>' ),
+    'description'           => sprintf( __( 'Use Newsletter Plugins shortcode: Eg: %1$s. %2$s See more here %3$s', 'wp-commerce' ), '[newsletter_form type="minimal"]','<a href="'.esc_url('https://wordpress.org/plugins/newsletter/').'" target="_blank">','</a>' ),
 	'type'          =>      'text',
 	'settings'		=>		'wp_commerce_subscribe_shortcode'
 	));
