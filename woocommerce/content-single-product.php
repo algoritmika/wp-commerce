@@ -13,12 +13,14 @@
 	* @see 	    https://docs.woocommerce.com/document/template-structure/
 	* @author 		wpcodethemes
 	* @package 	WooCommerce/Templates
-	* @version     3.0.0
+	* @version     3.6.0
 	*/
 
 	if ( ! defined( 'ABSPATH' ) ) {
 		exit;
 	}
+
+	global $product;
 
 	/**
 	* Hook Woocommerce_before_single_product.
@@ -32,7 +34,7 @@
 	return;
 }
 ?>
-<div class="product-detail" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="product-detail" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 	<div class="row">
 		<div class="col-md-5">
 			<div id="product__slider">
@@ -40,7 +42,7 @@
 					<div class="slide zoom">
 						<?php wp_commerce_show_product_images();?>
 					</div>
-				</div>	
+				</div>
 				<div class="product__slider-thmb">
 					<?php wp_commerce_output_related_products();?>
 				</div>
@@ -53,8 +55,8 @@
 					<?php wp_commerce_template_single_title();?>
 					<?php wp_commerce_template_single_rating();?>
 				</div>
-				<?php wp_commerce_template_loop_price();?>	
-				<?php wp_commerce_template_single_excerpt();?>	
+				<?php wp_commerce_template_loop_price();?>
+				<?php wp_commerce_template_single_excerpt();?>
 				<?php wp_commerce_template_single_add_to_cart();?>
 			</div>
 		</div>

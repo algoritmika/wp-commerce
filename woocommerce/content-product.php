@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  wpcodethemes
  * @package WooCommerce/Templates
- * @version 3.0.0
+ * @version 3.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +31,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
  	<div class="product">
         <div class="card">
 		<?php
-		
+
 
 		/**
 		 * woocommerce_before_shop_loop_item_title hook.
@@ -66,8 +66,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		do_action( 'woocommerce_shop_loop_item_title' );
 
 		?>
-		
-		<?php	
+
+		<?php
 		/**
 		 * woocommerce_after_shop_loop_item_title hook.
 		 *
