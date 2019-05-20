@@ -11,7 +11,7 @@ A starter theme called WP Commerce.
 
 == Description ==
 
-WP Commerce is beautifully design e-commerce theme fully compatible with most popular WooCommerce plugin. The theme comes with clean and elegant design and developer friendly. It is fully responsive, translation ready, SEO friendly and compatible with WooCommerce.
+WP Commerce is a beautifully designed e-commerce theme fully compatible with most popular WooCommerce plugin. The theme comes with a clean and elegant design and is developer friendly. It is fully responsive, translation ready, SEO friendly and compatible with WooCommerce.
 
 == Installation ==
 
