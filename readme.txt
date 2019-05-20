@@ -44,6 +44,7 @@ GNU General Public License for more details.
 
 = 1.1.0 - May 20 2019 =
 * Fix - Add to cart template fixed for variable products.
+* Fix - `result-count.php` text fixed.
 * Dev - General clean up.
 
 = 1.0.5 - July 4 2018 =
