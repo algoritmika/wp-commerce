@@ -3,8 +3,8 @@ Theme Name: WP Commerce
 Theme URI: https://wpcodethemes.com/downloads/wp-commerce/
 Author: wpcodethemes
 Author URI: http://wpcodethemes.com/
-Description: WP Commerce is beautifully design e-commerce theme fully compatible with most popular WooCommerce plugin. The theme comes with clean and elegant design and developer friendly. It is fully responsive, translation ready, SEO friendly and compatible with WooCommerce
-Version: 1.0.5
+Description: WP Commerce is beautifully design e-commerce theme fully compatible with most popular WooCommerce plugin. The theme comes with clean and elegant design and developer friendly. It is fully responsive, translation ready, SEO friendly and compatible with WooCommerce.
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: wp-commerce
@@ -54,7 +54,7 @@ h1,h2,h3,h4,h5,h6,
 .btn:hover:before{
 	height: 50%;
 }
-.btn:before { 
+.btn:before {
     content: "";
     position: absolute;
     left: 0;
@@ -283,10 +283,10 @@ h1,h2,h3,h4,h5,h6,
 .m-header .mini-cart-media h6{
 	font-size: 12px;
 	text-transform: uppercase;
-	white-space: nowrap; 
-    max-width: 85%; 
+	white-space: nowrap;
+    max-width: 85%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 .m-header .mini-cart-media .price-tag{
 	padding: 0;
@@ -357,7 +357,7 @@ h1,h2,h3,h4,h5,h6,
 	padding: 0;
 }
 .b-header .navbar-nav li a{
-	font-size: 13px; 
+	font-size: 13px;
 	font-weight: 700;
 	text-transform: uppercase;
 }
@@ -662,7 +662,7 @@ h1,h2,h3,h4,h5,h6,
 	border-radius: 3px;
 }
 .product .card .card-body .option li a.active{
-	background: #1f96f0; 
+	background: #1f96f0;
 }
 .product .card .card-body .option li a span{
 	position: absolute;
@@ -1100,14 +1100,14 @@ h1,h2,h3,h4,h5,h6,
 .left-sidebar{
 	height: 100%;
 	border: 1px solid #f1f1f1;
-} 
+}
 .sidebar {
 	border: 1px solid #f1f1f1;
 	padding: 25px;
 }
 .sidebar .blog-categories{
 	border: 1px solid #f1f1f1;
-	border-style: none none solid; 
+	border-style: none none solid;
 	margin: 0 0 20px;
 }
 .sidebar .blog-categories:last-child{
@@ -1381,7 +1381,7 @@ h1,h2,h3,h4,h5,h6,
 }
 .sidebar .sizes ul li.active a{
 	border-color: #3e50b4;
-	color: #3e50b4; 
+	color: #3e50b4;
 }
 .sortby {
 	font-size: 12px;
@@ -1711,7 +1711,7 @@ label {
 	display: block;
 }
 .zoom img::selection {
- 	background-color: transparent; 
+ 	background-color: transparent;
 }
 @media (max-width: 1199px){
 	.xl-hidden{
@@ -1742,7 +1742,7 @@ label {
 	.b-header .navbar-nav li{
 		border-bottom: 1px solid #ddd;
 	}
-	.b-header .my-nav li a.nav-link, 
+	.b-header .my-nav li a.nav-link,
 	.b-header .r-nav li a.nav-link{
 		padding: 15px 0 !important;
 	}
@@ -1881,7 +1881,7 @@ label {
 	.t-header .top-holder{
 		padding: 5px 0;
 	}
-	.t-header .top-holder .language, 
+	.t-header .top-holder .language,
 	.t-header .top-holder .top-link{
 		text-align: center !important;
 	}
@@ -2152,25 +2152,25 @@ a img.aligncenter {
 #commentform #comment {
 	width: 100%;
 }
-#respond { } 
-#reply-title { } 
+#respond { }
+#reply-title { }
 #cancel-comment-reply-link { }
-#commentform { } 
+#commentform { }
 #author,#email,#url{
 	width: 100%;
 	height: 38px;
 	border: 1px solid #e7e7e7;
 }
 #submit{
-	
+
 }
-.comment-notes { } 
+.comment-notes { }
 .required { }
 .comment-form-author { }
-.comment-form-email { } 
+.comment-form-email { }
 .comment-form-url { }
-.comment-form-comment { } 
-.form-allowed-tags { } 
+.comment-form-comment { }
+.form-allowed-tags { }
 .form-submit{}
 .form-submit input {
 	padding: 10px 30px;

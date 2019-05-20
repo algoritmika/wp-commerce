@@ -1,31 +1,29 @@
-=== wp-commerce ===
-
+=== WP Commerce ===
 Contributors: wpcodethemes
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, blog, e-commerce
-
 Requires at least: 4.7
-Tested up to: 4.9.6
-Stable tag: 1.0.5
+Tested up to: 5.2
+Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called wp-commerce.
+A starter theme called WP Commerce.
 
 == Description ==
 
-WP Commerce is beautifully design e-commerce theme fully compatible with most popular WooCommerce plugin. The theme comes with clean and elegant design and developer friendly. It is fully responsive, translation ready, SEO friendly and compatible with WooCommerce
+WP Commerce is beautifully design e-commerce theme fully compatible with most popular WooCommerce plugin. The theme comes with clean and elegant design and developer friendly. It is fully responsive, translation ready, SEO friendly and compatible with WooCommerce.
 
 == Installation ==
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+1. In your admin panel, go to "Appearance > Themes" and click the "Add New" button.
+2. Click "Upload Theme" and "Choose File", then select the theme's .zip file. Click "Install Now".
+3. Click "Activate" to use your new theme right away.
 
 == Frequently Asked Questions ==
 
 = Does this theme support any plugins? =
 
-wp-commerce includes support for Infinite Scroll in Jetpack.
+WP Commerce includes support for Infinite Scroll in Jetpack.
 
 == Copyright ==
 
@@ -44,29 +42,34 @@ GNU General Public License for more details.
 
 == Changelog ==
 
-= 1.0 - May 18 2018 =
-* Initial release
-
-= 1.0.1 - June 18 2018 =
-* Bug fixes
-* Remove wishlist
-
-= 1.0.2 - June 18 2018 =
-* Minor Fixes
-
-= 1.0.3 - June 19 2018 =
-* Bug Fixes
-* Add copyright text
-
-= 1.0.4 - June 29 2018 =
-* Bug Fixes
-* Escaping issue solve
+= 1.1.0 - May 20 2019 =
+* Fix - Add to cart template fixed for variable products.
+* Dev - General clean up.
 
 = 1.0.5 - July 4 2018 =
 * upgrade to pro link
 * Bug fixes
 
+= 1.0.4 - June 29 2018 =
+* Bug Fixes
+* Escaping issue solve
+
+= 1.0.3 - June 19 2018 =
+* Bug Fixes
+* Add copyright text
+
+= 1.0.2 - June 18 2018 =
+* Minor Fixes
+
+= 1.0.1 - June 18 2018 =
+* Bug fixes
+* Remove wishlist
+
+= 1.0.0 - May 18 2018 =
+* Initial release
+
 == Credits ==
+
 * Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
 * Bootstrap v4.1.0 (https://getbootstrap.com/), Copyright 2011-2018 The Bootstrap Authors, Copyright 2011-2018 Twitter, Inc. Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -84,5 +87,3 @@ All images used in the theme  under GPL License
 
 Image used in screenshot
 https://pxhere.com/en/photo/1289279
-
-

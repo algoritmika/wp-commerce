@@ -1,8 +1,13 @@
 <?php
+/**
+ * woocommerce.php
+ *
+ * @version 1.1.0
+ */
 
-/*
-* woocommerce archieve product page hooks overwirte start
-*/
+/**
+ * woocommerce archive product page hooks overwrite start
+ */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
@@ -25,13 +30,13 @@ add_action( 'woocommerce_shop_loop_item_title', 'wp_commerce_template_loop_produ
 add_action( 'woocommerce_after_shop_loop_item_title', 'wp_commerce_template_loop_price', 10 );
 add_action( 'woocommerce_after_shop_loop_item', 'wp_commerce_template_loop_add_to_cart', 10 );
 
-function wp_commerce_before_main_content() 
+function wp_commerce_before_main_content()
 {?>
 	<section class="product-list block"> <div class="container">
 		<div class="row">
 		<?php }
 
-		function wp_commerce_after_main_content() 
+		function wp_commerce_after_main_content()
 		{?>
 		</section></div></div>
 		<?php
@@ -48,7 +53,7 @@ function wp_commerce_before_main_content()
 			'current'  => wc_get_loop_prop( 'current_page' ),
 		);
 
-		wc_get_template( 'loop/result-count.php', $args );	
+		wc_get_template( 'loop/result-count.php', $args );
 	}
 
 	function wp_commerce_catalog_ordering(){
@@ -116,7 +121,7 @@ function wp_commerce_before_main_content()
 					<span class="discount-tag"><?php echo esc_html($currency); echo esc_html($price); ?></span> <?php echo esc_html($currency); echo esc_html($sale); ?>
 
 					<?php elseif($price) : ?>
-						<span class="discount-tag"><?php echo esc_html($currency); echo esc_html($price); ?></span>  
+						<span class="discount-tag"><?php echo esc_html($currency); echo esc_html($price); ?></span>
 					<?php endif; ?>
 				</p>
 			</div>
@@ -133,7 +138,7 @@ function wp_commerce_before_main_content()
 				</li>
 			</ul>
 			<?php
-		}		
+		}
 /*
 * archieve product page hooks overwirte end
 */
@@ -145,7 +150,7 @@ function wp_commerce_show_product_images(){
 	global $product;
 	$post_thumbnail_id = $product->get_id();
 	$product_thumb_url = get_the_post_thumbnail_url($post_thumbnail_id,'wp-commerce-single-product-thumb-379*-379');
-	?>	
+	?>
 	<img src="<?php echo esc_url($product_thumb_url);?>" alt="">
 	<?php
 }
@@ -204,7 +209,7 @@ function wp_commerce_template_single_rating(){
 	if ( $rating_count > 0 ) : ?>
 		<div class="woocommerce-product-rating">
 			<?php echo wc_get_rating_html( $average, $rating_count ); ?>
-			<?php if ( comments_open() ) : ?><?php 
+			<?php if ( comments_open() ) : ?><?php
 				//translators: %s: review count.
 				printf( _n( '%s customer review', '%s customer reviews', $review_count, 'wp-commerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?><a href="#reviews" class="add"><?php esc_html_e('Add a review','wp-commerce');?></a><?php endif ?>
 			</div>
@@ -226,8 +231,18 @@ function wp_commerce_template_single_rating(){
 		<?php
 	}
 
+	/**
+	 * wp_commerce_template_single_add_to_cart
+	 *
+	 * @version 1.1.0
+	 */
 	function wp_commerce_template_single_add_to_cart(){
 		global $product;
+
+		if ( $product->is_type( 'variable' ) ) {
+			woocommerce_variable_add_to_cart();
+			return;
+		}
 
 		if ( ! $product->is_purchasable() ) {
 			return;
@@ -299,9 +314,9 @@ function wp_commerce_add_to_cart_dropdown(){?>
 				<div class="dropdown-menu dropdown-menu-right">
 					<?php if ( ! WC()->cart->is_empty() ) : ?>
 					<div class="mini-cart-media">
-						<?php 
+						<?php
 						foreach( WC()->cart->cart_contents as $cart_item_key => $cart_item ):
-							$item = $cart_item['data']; 
+							$item = $cart_item['data'];
 							$item_id = $item->get_id();
 							$item_name = $item->get_name();
 							$qty = $cart_item['quantity'];
@@ -325,7 +340,7 @@ function wp_commerce_add_to_cart_dropdown(){?>
 										<p><?php esc_html_e('Qty: ', 'wp-commerce'); ?> <span><?php echo esc_html( $qty ); ?></span></p>
 									</div>
 								</div>
-								<?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s"><span class="fa fa-times-circle"></span></a>', esc_url( wc_get_cart_remove_url( $cart_item_key )  ), __( 'Remove this item', 'wp-commerce' ) ), $cart_item_key ); ?>      
+								<?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s"><span class="fa fa-times-circle"></span></a>', esc_url( wc_get_cart_remove_url( $cart_item_key )  ), __( 'Remove this item', 'wp-commerce' ) ), $cart_item_key ); ?>
 							</div>
 						<?php endforeach;?>
 
