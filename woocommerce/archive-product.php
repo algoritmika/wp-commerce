@@ -13,7 +13,7 @@
  * @see       https://docs.woocommerce.com/document/template-structure/
  * @author    wpcodethemes
  * @package   WooCommerce/Templates
- * @version     3.3.0
+ * @version     3.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +32,7 @@ get_header('shop');
 do_action( 'woocommerce_before_main_content' );?>
 <div class="col-lg-3 col-md-12">
   <div class="right-sidebar sidebar">
-    <?php if ( is_active_sidebar( 'shop-sidebar' ) ) : ?>    
+    <?php if ( is_active_sidebar( 'shop-sidebar' ) ) : ?>
       <!-- Single Table -->
           <?php dynamic_sidebar( 'shop-sidebar' ); ?>
       <!-- End Single Table-->
@@ -42,7 +42,7 @@ do_action( 'woocommerce_before_main_content' );?>
 <div class="col-lg-9 col-md-12">
   <?php
 
-  if ( have_posts() ) {
+  if ( woocommerce_product_loop() ) {
 
   /**
    * Hook: woocommerce_before_shop_loop.
@@ -69,7 +69,7 @@ do_action( 'woocommerce_before_main_content' );?>
             wc_get_template_part( 'content', 'product' );
           }
         }
-        ?>  
+        ?>
       </div>
     </div>
 <?php
