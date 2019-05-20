@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="product__slider-thmb">
-					<?php wp_commerce_output_related_products();?>
+					<?php woocommerce_show_product_thumbnails(); ?>
 				</div>
 			</div>
 		</div>

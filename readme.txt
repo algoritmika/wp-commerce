@@ -44,6 +44,7 @@ GNU General Public License for more details.
 
 = 1.1.0 - May 20 2019 =
 * Fix - Add to cart template fixed for variable products.
+* Fix - `content-single-product.php` - Product thumbnails (gallery) fixed.
 * Fix - `result-count.php` text fixed.
 * Dev - Outdated WooCommerce templates updated.
 * Dev - General clean up.
